@@ -332,9 +332,11 @@
   function josa(word, pair) {
     const p = String(pair).split('/');
     const s = String(word || '').trim();
+    if (!s) return '';
     const c = s.charCodeAt(s.length - 1);
-    if (c >= 0xAC00 && c <= 0xD7A3) return ((c - 0xAC00) % 28) ? p[0] : (p[1] || p[0]);
-    return p[0];
+    let part = p[0];
+    if (c >= 0xAC00 && c <= 0xD7A3) part = ((c - 0xAC00) % 28) ? p[0] : (p[1] || p[0]);
+    return s + part;
   }
 
   function fill(tpl, vars) {
