@@ -409,10 +409,12 @@
         usedTpl.add(tpl);
         usedHooks.add(hook);
         if (!usesHook) kwOnly++;
-        list.push({ text, type });
+        list.push({ text, type, hooky: usesHook });
         break;
       }
     }
+    // 본문 첫 줄은 상황을 담은 제목이 오도록
+    list.sort((a, b) => (b.hooky ? 1 : 0) - (a.hooky ? 1 : 0));
     return list;
   }
 
