@@ -510,6 +510,13 @@
     renderResults();
   }
 
+  /* 링크·광고 토글은 제목을 그대로 두고 본문만 다시 */
+  function refreshBodies() {
+    if (!out) return generate();
+    out.platforms = buildPlatforms(out.titles, out.kw);
+    renderResults();
+  }
+
   /* ═════════════════════════════════════════
      렌더 — 칩
      ═════════════════════════════════════════ */
@@ -818,8 +825,8 @@
     });
     pno.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); generate(); } });
 
-    $('#linkOn').addEventListener('change', (e) => { state.linkOn = e.target.checked; saveInput(); generate(); });
-    $('#adOn').addEventListener('change', (e) => { state.adOn = e.target.checked; saveInput(); generate(); });
+    $('#linkOn').addEventListener('change', (e) => { state.linkOn = e.target.checked; saveInput(); refreshBodies(); });
+    $('#adOn').addEventListener('change', (e) => { state.adOn = e.target.checked; saveInput(); refreshBodies(); });
 
     $('#genBtn').addEventListener('click', () => { generate(); toast('새로 뽑음'); });
     $('#reroll').addEventListener('click', () => { generate(); toast('새로 뽑음'); });
