@@ -444,8 +444,18 @@
     const cat = CAT[state.cat];
     const tone = TONE[state.tone];
     const title = titles[0].text;
-    const comment = pick(tone.comment);
-    const ask = pick(tone.ask);
+
+    /* 제목과 겹치는 문구는 피함 */
+    const fresh = (list) => {
+      const dup = (s) => {
+        for (let i = 0; i + 6 <= s.length; i++) if (title.includes(s.slice(i, i + 6))) return true;
+        return false;
+      };
+      const ok = list.filter((s) => !dup(s));
+      return pick(ok.length ? ok : list);
+    };
+    const comment = fresh(tone.comment);
+    const ask = fresh(tone.ask);
     const no = productNo();
     const pnoLabel = no || '{번호}';
     const linkLine = state.linkOn ? `상품이 궁금하면 프로필 링크에서 ${pnoLabel}번!` : '';
@@ -492,7 +502,7 @@
         ])
       },
       instagram: {
-        name: '인스타', icon: '◎', note: '짤만 올리는 계정이면 사진만',
+        name: '인스타', icon: '◎', note: '짤 전용 계정이면 사진만',
         body: tidy([
           title,
           '.',
