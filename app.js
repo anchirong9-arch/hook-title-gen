@@ -387,6 +387,7 @@
   function makeTitles(kw) {
     const hooks = shuffle(CAT[state.cat].hooks);
     let hi = 0;
+    let kwOnly = 0;
     const usedHooks = new Set();
     const usedTpl = new Set();
     const usedText = new Set();
@@ -396,6 +397,8 @@
       const pool = shuffle(TITLE_T[state.tone][type]);
       for (const tpl of pool) {
         if (usedTpl.has(tpl)) continue;
+        const usesHook = /\{hook\}/.test(tpl);
+        if (!usesHook && kwOnly >= 2) continue;
         let hook = hooks[hi++ % hooks.length];
         if (usedHooks.has(hook) && usedHooks.size < hooks.length) {
           hook = hooks.find((h) => !usedHooks.has(h)) || hook;
@@ -405,6 +408,7 @@
         usedText.add(text);
         usedTpl.add(tpl);
         usedHooks.add(hook);
+        if (!usesHook) kwOnly++;
         list.push({ text, type });
         break;
       }
