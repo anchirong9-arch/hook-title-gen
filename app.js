@@ -158,26 +158,26 @@
         '{hook} ㅋㅋㅋ 이거 실화냐',
         '{hook} 이건 좀 심하다',
         '{hook} 보고 3초 웃음 참음',
-        '{k1} 하나로 이 난리 났음',
+        '{k1:이/가} 이 난리 냈음',
         '{hook} 이게 말이 되나'
       ],
       question: [
         '{hook} 이거 저만 빡치나요?',
-        '{k1} 이러면 여러분은 어떡함?',
         '{hook} 이거 맞는 거임?',
+        '{k1:은/는} 왜 이럼?',
         '이런 {k1} 본 적 있음?'
       ],
       empathy: [
         '{hook} 이거 나만 이런 거 아니지',
-        '{k1} 하면 다 이러잖아',
         '{hook} 이해하는 사람만 이해함',
-        '{hook} 우리 다 같은 사람임'
+        '{hook} 우리 다 같은 사람임',
+        '{k1:은/는} 원래 이럼'
       ],
       info: [
         '{hook} 이렇게 대처하면 됨',
-        '{k1} 이럴 때 쓰는 방법',
         '{hook} 3초 만에 정리됨',
-        '{k1} 이거 모르면 계속 당함'
+        '{k1:이/가} 필요한 순간 있음',
+        '{hook} 모르면 계속 당함'
       ]
     },
     twist: {
@@ -189,47 +189,47 @@
       ],
       question: [
         '{hook} 이거 어떻게 생각함?',
-        '{k1} 이게 맞는 건가?',
         '{hook} 이거 믿어짐?',
+        '{k1:이/가} 이게 맞는 건가?',
         '여러분 {k1} 이거 가능하다고 봄?'
       ],
       empathy: [
         '{hook} 이거 알고 나면 좀 다름',
         '{hook} 그럴 만했음',
-        '{k1} 이래서 그랬구나',
-        '{hook} 이유가 따로 있었음'
+        '{hook} 이유가 따로 있었음',
+        '{k1} 이래서 그랬구나'
       ],
       info: [
-        '{hook} 이유가 있었음',
-        '{k1} 이렇게 되는 거였음',
+        '{hook} 정리해 봄',
         '{hook} 3초면 이해됨',
-        '{k1} 이거 몰랐으면 손해'
+        '{k1} 이렇게 되는 거였음',
+        '{hook} 이거 몰랐으면 손해'
       ]
     },
     empathy: {
       click: [
         '{hook} 이거 나만 그런 거 아니지?',
         '{hook} 이거 보면 마음이 좀 놓임',
-        '{k1} 하다가 지친 사람 여기',
-        '{hook} 다들 이러고 사는 거 맞지'
+        '{hook} 다들 이러고 사는 거 맞지',
+        '{k1:은/는} 좀 힘들었겠다'
       ],
       question: [
         '{hook} 나만 이런 거 아니지?',
-        '{k1} 이거 다들 겪어봄?',
         '{hook} 이거 나만 힘든 거임?',
+        '{k1} 이거 다들 겪어봄?',
         '이런 {k1} 있으면 어떻게 함?'
       ],
       empathy: [
         '{hook} 괜찮다고 말해주고 싶음',
         '{hook} 그 마음 알 것 같음',
-        '{k1} 이거 진짜 공감됨',
-        '{hook} 우리 모두 수고했음'
+        '{hook} 우리 모두 수고했음',
+        '{k1} 이거 진짜 공감됨'
       ],
       info: [
         '{hook} 이럴 땐 이렇게 하자',
-        '{k1} 힘들 때 쓰는 방법',
         '{hook} 3분만 정리해 보셈',
-        '{k1} 이거 하나만 기억하셈'
+        '{k1} 이거 하나만 기억하셈',
+        '{hook} 생각보다 간단함'
       ]
     },
     info: {
@@ -240,21 +240,21 @@
         '{hook} 3초면 해결됨'
       ],
       question: [
-        '{k1} 이거 어떻게 하는지 앎?',
         '{hook} 이거 왜 이런지 앎?',
+        '{hook} 이거 아는 사람 있음?',
         '{k1} 이거 제대로 쓰고 있음?',
-        '{hook} 이거 아는 사람 있음?'
+        '{k1} 어떻게 쓰는지 앎?'
       ],
       empathy: [
         '{hook} 이거 알면 편해짐',
-        '{k1} 이거 은근히 다들 모름',
         '{hook} 이거 하나만 바꿔도 됨',
-        '{hook} 생각보다 간단함'
+        '{k1} 이거 은근히 다들 모름',
+        '{hook} 진짜 별거 아님'
       ],
       info: [
         '{hook} 정리해 봄',
-        '{k1} 쓰는 순서 정리',
         '{hook} 3단계면 끝',
+        '{k1} 쓰는 순서 정리',
         '{k1} 이거만 알면 됨'
       ]
     }
@@ -263,32 +263,37 @@
   /* ───────── 썸네일 문구 템플릿 (12~16자 지향) ───────── */
   const BAND_T = {
     fun: [
-      '{k1} 이거 실화냨ㅋㅋ',
+      '오늘 {k1} 실화냐ㅋㅋ',
       '{k1} 보고 빡친 사람?',
-      '{k1} 이건 못 참지',
-      '{k1} 레전드 갱신함',
-      '{k1} 오늘도 사고침'
+      '{k1} 이건 좀 못 참지',
+      '{k1} 레전드 갱신했음',
+      '{k1} 오늘도 사고 쳤음'
     ],
     twist: [
       '{k1} 반전 있음 ㄷㄷ',
-      '{k1} 이게 맞나 싶음',
-      '{k1} 진짜 이거임?',
-      '{k1} 알고 보면 다름'
+      '{k1} 이게 맞나 싶다',
+      '{k1} 진짜 이거 맞음?',
+      '{k1} 알고 보면 다름 ㅋㅋ'
     ],
     empathy: [
       '{k1} 이거 나만 이럼?',
-      '{k1} 공감 100%임',
-      '{k1} 하면 다 이렇잖아',
-      '{k1} 그 마음 다 앎'
+      '{k1} 공감 100%임 진짜',
+      '{k1} 이럴 땐 다 이렇잖아',
+      '{k1} 이거 진짜 공감됨'
     ],
     info: [
-      '{k1} 꿀팁 정리함',
+      '{k1} 꿀팁 하나 정리함',
       '{k1} 이거 모르면 손해',
-      '{k1} 3초면 정리됨',
-      '{k1} 제대로 쓰는 법'
+      '{k1} 이거 3초면 정리됨',
+      '{k1} 이거 제대로 쓰는 법'
     ]
   };
-  const BAND_GENERIC = ['{k1} 이거 봐라', '오늘 {k1} 실화임?', '{k1} 하나로 난리남'];
+  const BAND_GENERIC = [
+    '{k1} 이거 봐라 진짜로',
+    '{k1} 하나로 난리 났음',
+    '{k1} 이거 좀 대박임',
+    '{k1} 오늘 뭐 했냐면'
+  ];
 
   const TYPE_LABEL = { click: '클릭유도', question: '질문', empathy: '공감', info: '정보' };
   const TYPE_ORDER = ['click', 'click', 'click', 'question', 'question', 'empathy', 'empathy', 'info', 'info'];
@@ -323,8 +328,18 @@
   };
   const uniq = (arr) => arr.filter((v, i) => arr.indexOf(v) === i);
 
+  /* 받침에 맞춰 조사를 붙임 — '{k1:은/는}' 처럼 씀 */
+  function josa(word, pair) {
+    const p = String(pair).split('/');
+    const s = String(word || '').trim();
+    const c = s.charCodeAt(s.length - 1);
+    if (c >= 0xAC00 && c <= 0xD7A3) return ((c - 0xAC00) % 28) ? p[0] : (p[1] || p[0]);
+    return p[0];
+  }
+
   function fill(tpl, vars) {
-    return tpl.replace(/\{(hook|k1|k2|k3)\}/g, (_, k) => vars[k] || '')
+    return tpl.replace(/\{(hook|k1|k2|k3):([가-힣/]+)\}/g, (_, k, pair) => josa(vars[k], pair))
+      .replace(/\{(hook|k1|k2|k3)\}/g, (_, k) => vars[k] || '')
       .replace(/\s+/g, ' ')
       .trim();
   }
@@ -394,17 +409,18 @@
 
   function makeBands(kw) {
     const pool = shuffle(BAND_T[state.tone].concat(BAND_GENERIC));
+    const k = kw[0].length > 9 ? kw[0].slice(0, 9) : kw[0];
     const seen = new Set();
-    const bands = [];
+    const good = [];
+    const ok = [];
     for (const tpl of pool) {
-      const k = kw[0].length > 9 ? kw[0].slice(0, 9) : kw[0];
-      let text = fit(fill(tpl, { k1: k }), 16);
-      if (text.length < 8) text = fit(text + ' 봐라', 16);
+      const text = fit(fill(tpl, { k1: k }), 16);
       if (seen.has(text)) continue;
       seen.add(text);
-      bands.push(text);
-      if (bands.length === 5) break;
+      (text.length >= 12 ? good : ok).push(text);
     }
+    const bands = good.concat(ok).slice(0, 5);
+    while (bands.length < 5) bands.push(fit(`${k} 이거 봐라 진짜로 ${bands.length}`, 16));
     return bands;
   }
 
@@ -524,7 +540,8 @@
         b.type = 'button';
         b.addEventListener('click', () => {
           const cur = keywords();
-          if (cur.indexOf(w) !== -1) return;
+          if (cur.indexOf(w) !== -1) return toast('이미 들어 있음');
+          if (cur.length >= 3) return toast('키워드는 3개까지');
           cur.push(w);
           state.kwRaw = cur.slice(0, 3).join(', ');
           $('#kwInput').value = state.kwRaw;
@@ -552,6 +569,7 @@
       el('b', '', (ownKw.length ? ownKw : out.kw.slice(0, 3)).join(', ')),
       document.createTextNode(ownKw.length ? '' : ' (카테고리 기본)')
     );
+    if (state.linkOn && !productNo()) meta.append(document.createTextNode(' · 상품 번호를 넣으면 {번호} 자리에 채워짐'));
     $('#resMeta').append(meta);
 
     // 제목
