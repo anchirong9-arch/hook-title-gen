@@ -549,23 +549,26 @@
   function renderKwSuggest() {
     const box = $('#kwSuggest');
     box.innerHTML = '';
-    CAT[state.cat].kw.concat(CAT[state.cat].tags.slice(0, 2).map((t) => t.slice(1)))
-      .slice(0, 5)
-      .forEach((w) => {
-        const b = el('button', '', '+' + w);
-        b.type = 'button';
-        b.addEventListener('click', () => {
-          const cur = keywords();
-          if (cur.indexOf(w) !== -1) return toast('이미 들어 있음');
-          if (cur.length >= 3) return toast('키워드는 3개까지');
-          cur.push(w);
-          state.kwRaw = cur.slice(0, 3).join(', ');
-          $('#kwInput').value = state.kwRaw;
-          saveInput();
-          generate();
-        });
-        box.append(b);
+    const cur = keywords();
+    const words = uniq(CAT[state.cat].kw.concat(CAT[state.cat].tags.slice(0, 3).map((t) => t.slice(1))))
+      .filter((w) => cur.indexOf(w) === -1)
+      .slice(0, 5);
+    words.forEach((w) => {
+      const b = el('button', '', '+' + w);
+      b.type = 'button';
+      b.addEventListener('click', () => {
+        const now = keywords();
+        if (now.indexOf(w) !== -1) return toast('이미 들어 있음');
+        if (now.length >= 3) return toast('키워드는 3개까지');
+        now.push(w);
+        state.kwRaw = now.join(', ');
+        $('#kwInput').value = state.kwRaw;
+        saveInput();
+        renderKwSuggest();
+        generate();
       });
+      box.append(b);
+    });
   }
 
   /* ═════════════════════════════════════════
@@ -814,7 +817,7 @@
     });
 
     const kwInput = $('#kwInput');
-    kwInput.addEventListener('input', () => { state.kwRaw = kwInput.value; saveInput(); });
+    kwInput.addEventListener('input', () => { state.kwRaw = kwInput.value; saveInput(); renderKwSuggest(); });
     kwInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); generate(); } });
 
     const pno = $('#pnoInput');
